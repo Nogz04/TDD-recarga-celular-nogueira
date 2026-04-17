@@ -6,10 +6,11 @@ class TestGerenciadorRecarga(TestCase):
     def test_nao_aceita_recarga_abaixo_de_vinte_reais(self):
         gerenciador = GerenciadorRecarga()
 
+        # Avisa que irá testar a execução de uma função abaixo que é para dar erro 
         with self.assertRaises(Exception) as context:
-            gerenciador.efetuar_recarga(10.00)
+            gerenciador.efetuar_recarga(10.00) # Essa aqui é a função, ela tenta fazer uma recarga de R$10,00, que não é permitida pelas regras de negócio
 
-        self.assertTrue("Valor minimo de recarga é R$ 20,00" in str(context.exception))
+        self.assertTrue("Valor minimo de recarga é R$ 20,00" in str(context.exception)) # Aqui ele lança um erro que é comparado com o erro que bate na função, se bater com o erro, significa que esse teste passou.
 
 
     def test_recarga_de_valor_retorna_o_mesmo_valor_em_gb(self):
