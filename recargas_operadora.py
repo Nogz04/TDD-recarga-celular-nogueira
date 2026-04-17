@@ -1,6 +1,6 @@
 class GerenciadorRecarga:
 
-    # CONTANTES
+    # CONSTANTES
 
     _VALOR_EM_REAIS_MINIMO = 20.00 # Valor mínimo em reais para efetuar a recarga
     _VALOR_GB_BONUS = 20 # Valor de bônus que será adicionado quando tiver elegibilidade de bônus
