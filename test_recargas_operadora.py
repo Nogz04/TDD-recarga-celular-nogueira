@@ -1,6 +1,13 @@
 from unittest import TestCase
 from recargas_operadora import GerenciadorRecarga
 
+# REGRAS DE NEGÓCIO DESSA OPERADORA
+
+# 1 - Não deve permitir recarga abaixo de R$20,00
+# 2 - Para cada R$1,00 gasto na recarga, deve ser convertido em 1GB, ou seja: R$20,00 = 20GB
+# 3 - Quando a recarga for de R$50 ou mais, deve adicionar um bônus de 20GB somado ao valor de GB base concedido. Ou seja: recarregou R$50,00 = 50GB + 20GB bônus = 70GB
+# 4 - Deve acumular o saldo em GB correto com base nas recargas com bônus, sem bônus e/ou os 2 juntos, segue o exemplo: R$20,00 + R$20,00 = 40GB | R$50,00 + R$50,00 = 140GB (40GB de Bônus) | R$50,00 + R$20,00 = 90GB (20GB de bônus)  
+
 class TestGerenciadorRecarga(TestCase):
 
     def test_nao_aceita_recarga_abaixo_de_vinte_reais(self):
