@@ -2,9 +2,9 @@ class GerenciadorRecarga:
 
     # CONTANTES
 
-    _VALOR_EM_REAIS_MINIMO = 20.00
-    _VALOR_GB_BONUS = 20
-    _VALOR_EM_REAIS_GATILHO_BONUS = 50.00
+    _VALOR_EM_REAIS_MINIMO = 20.00 # Valor mínimo em reais para efetuar a recarga
+    _VALOR_GB_BONUS = 20 # Valor de bônus que será adicionado quando tiver elegibilidade de bônus
+    _VALOR_EM_REAIS_GATILHO_BONUS = 50.00 # Valor que ativa o gatilho de elegibilidade de bônus
 
 
     def __init__(self):
@@ -14,7 +14,7 @@ class GerenciadorRecarga:
     def saldo_total_gb(self) -> int: #É uma função que com o @property vira uma variável que pode ser usada para acessar ou retornar o saldo total de GB
         return self._saldo_total_gb
 
-    def efetuar_recarga(self, valor_pago: float) -> int:
+    def efetuar_recarga(self, valor_pago: float) -> int: #A função de recarga recebe o valor pago em float e retorna os GB (int)
         
         self._validar_valor_recarga(valor_pago) # Verifica a recarga, se quebrar ja para aqui
 
