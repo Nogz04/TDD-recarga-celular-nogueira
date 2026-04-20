@@ -4,6 +4,10 @@ from constantes_enums.mensagens_erro import MensagensErro
 
 class TestGerenciadorRecarga(TestCase):
 
+    """
+    Classe que armazena os testes de regras de negócio para o GerenciadorRecarga.
+    """
+
     def test_nao_aceita_recarga_abaixo_de_vinte_reais(self):
         gerenciador = GerenciadorRecarga()
 

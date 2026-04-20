@@ -3,6 +3,9 @@ from constantes_enums.mensagens_erro import MensagensErro
 from constantes_enums.valores_e_recargas import ValoresErecargas
 
 class GerenciadorRecarga:
+    """
+    Classe que gerencia as recargas de celular.
+    """
 
     def __init__(self):
         self._saldo_total_gb = 0
