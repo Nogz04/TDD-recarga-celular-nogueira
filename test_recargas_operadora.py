@@ -1,5 +1,6 @@
 from unittest import TestCase
 from recargas_operadora import GerenciadorRecarga
+from constantes_enums.mensagens_erro import MensagensErro
 
 class TestGerenciadorRecarga(TestCase):
 
@@ -9,7 +10,7 @@ class TestGerenciadorRecarga(TestCase):
         with self.assertRaises(Exception) as context:
             gerenciador.efetuar_recarga(10.00)
 
-        self.assertTrue("Valor minimo de recarga é R$ 20,00" in str(context.exception))
+        self.assertTrue(MensagensErro.VALOR_MINIMO_RECARGA.value.replace(".", ",") in str(context.exception))
 
 
     def test_recarga_de_valor_retorna_o_mesmo_valor_em_gb(self):
@@ -50,3 +51,13 @@ class TestGerenciadorRecarga(TestCase):
         resultado = gerenciador.efetuar_recarga(20.00)
 
         self.assertEqual(90, resultado)
+
+
+    def test_valor_quebrado(self):
+
+        gerenciador = GerenciadorRecarga()
+
+        with self.assertRaises(Exception) as context:
+            gerenciador.efetuar_recarga(20.32)
+
+        self.assertTrue(MensagensErro.VALOR_QUEBRADO.value in str(context.exception))
